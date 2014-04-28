@@ -11,4 +11,8 @@ class Order
 		@dishes.concat(order)
 	end
 
+	def total_price
+		@dishes.inject(0) { |accu, dish| accu + dish.price }
+	end
+
 end

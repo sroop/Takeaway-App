@@ -15,4 +15,10 @@ describe 'Order' do
 		expect(order.dishes).to eq([salmon_sashimi, salmon_sashimi, salmon_sashimi])
 	end
 
+	it 'can calculate the total price' do
+		order.add(salmon_sashimi, 3)
+		expect(order.dishes).to eq([salmon_sashimi, salmon_sashimi, salmon_sashimi])
+		expect(order.total_price).to eq(33)
+	end
+
 end
