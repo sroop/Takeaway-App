@@ -6,7 +6,9 @@ class Order
 		@dishes = []
 	end
 
-	def add(dish)
-		@dishes << dish
+	def add(dish, quantity)
+		order = quantity.times.map { dish }
+		@dishes.concat(order)
 	end
+
 end

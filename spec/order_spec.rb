@@ -11,8 +11,8 @@ describe 'Order' do
 
 	it 'can add a dish and specify the quantity' do
 		expect(order.dishes).to be_empty
-		order.add(salmon_sashimi)
-		expect(order.dishes).to eq([salmon_sashimi])
+		order.add(salmon_sashimi, 3)
+		expect(order.dishes).to eq([salmon_sashimi, salmon_sashimi, salmon_sashimi])
 	end
 
 end
