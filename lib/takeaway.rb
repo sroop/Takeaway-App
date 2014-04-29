@@ -10,4 +10,11 @@ class Takeaway
 		@menu << menu
 	end
 
+	# def view_orders
+	# end
+
+	def place(order)
+		@order = order.dishes
+	end
+
 end
