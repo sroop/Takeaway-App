@@ -6,4 +6,8 @@ class Takeaway
 		@menu = menu
 	end
 
+	def add(menu)
+		@menu << menu
+	end
+
 end
