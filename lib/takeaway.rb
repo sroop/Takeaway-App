@@ -1,4 +1,8 @@
+require_relative './text.rb'
+
 class Takeaway
+
+	include Text
 
 	attr_reader :menu
 
@@ -10,11 +14,12 @@ class Takeaway
 		@menu << menu
 	end
 
-	# def view_orders
-	# end
-
 	def place(order)
 		@order = order.dishes
+	end
+
+	def confirm(order)
+		send_text
 	end
 
 end
