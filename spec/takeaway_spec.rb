@@ -22,9 +22,18 @@ describe 'Takeaway' do
 		expect(takeaway.place(my_order)).to eq(salmon_sashimi)
 	end 
 
-	it 'can confirm the order by sending a text with delivery eta' do
+	it 'can check if it has placed any orders' do
+		expect(takeaway.place(my_order)).to eq(salmon_sashimi)
+		expect(takeaway).to have_orders
+	end
+
+	it 'can confirm the order by sending a text with delivery eta and deletes the order' do
 		takeaway.stub(:send_text).and_return("Thanks for your order! It's on its way")
+		expect(takeaway.place(my_order)).to eq(salmon_sashimi)
+		expect(takeaway).to have_orders
+		salmon_sashimi = nil
 		expect(takeaway.confirm(my_order)).to eq("Thanks for your order! It's on its way")
+		expect(takeaway).to_not have_orders
 	end
 
 end

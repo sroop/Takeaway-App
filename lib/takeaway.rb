@@ -18,7 +18,12 @@ class Takeaway
 		@order = order.dishes
 	end
 
+	def has_orders?
+		@order
+	end
+
 	def confirm(order)
+		@order = nil
 		send_text
 	end
 
