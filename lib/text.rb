@@ -13,7 +13,8 @@ module Text
 		auth_token = '861bfe0a7073153f9f735baf1145adf1'
 		@client = Twilio::REST::Client.new account_sid, auth_token
 
-		message = @client.account.sms.messages.create(:body => "Thank you for your order! It will be delivered to you by #{time}.",
+		message = @client.account.sms.messages.create(
+			:body => "Thank you for your order! It will be delivered to you by #{time}.",
 			:to => "+447967764771",
 			:from => "+441202835749")
 		puts message.sid
