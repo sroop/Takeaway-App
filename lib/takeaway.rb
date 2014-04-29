@@ -23,6 +23,7 @@ class Takeaway
 	end
 
 	def confirm(order)
+		# raise "Error! That order has not yet been placed. Place your order first then try to confirm again." if order.dishes != @order
 		@order = nil
 		send_text
 	end

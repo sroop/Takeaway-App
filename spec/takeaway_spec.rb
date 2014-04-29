@@ -31,9 +31,15 @@ describe 'Takeaway' do
 		takeaway.stub(:send_text).and_return("Thanks for your order! It's on its way")
 		expect(takeaway.place(my_order)).to eq(salmon_sashimi)
 		expect(takeaway).to have_orders
-		salmon_sashimi = nil
 		expect(takeaway.confirm(my_order)).to eq("Thanks for your order! It's on its way")
+		salmon_sashimi = nil
 		expect(takeaway).to_not have_orders
 	end
+
+	# it 'can raise an error if the order to confirm has not been placed' do
+	# 	takeaway.stub(:send_text).and_return("Thanks for your order! It's on its way")
+	# 	expect(takeaway).to_not have_orders
+	# 	expect(takeaway.confirm(my_order)).to raise_error(RuntimeError)
+	# end
 
 end
